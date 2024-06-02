@@ -31,6 +31,13 @@ module Enumerable
     end
     return false
   end
+
+  def my_none?
+    each do |element|
+      return false if yield(element)
+    end
+    return true
+  end
 end
 
 # You will first have to define my_each
