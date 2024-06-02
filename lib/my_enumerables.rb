@@ -3,7 +3,7 @@ module Enumerable
   #
   def my_each_with_index
     index = 0
-    each do |element|
+    my_each do |element|
       yield [element, index]
       index += 1
     end
@@ -12,28 +12,28 @@ module Enumerable
 
   def my_select
     result = []
-    each do |element|
+    my_each do |element|
       result << element if yield(element)
     end
     result
   end
 
   def my_all?
-    each do |element|
+    my_each do |element|
       return false unless yield(element)
     end
     return true
   end
 
   def my_any?
-    each do |element|
+    my_each do |element|
       return true if yield(element)
     end
     return false
   end
 
   def my_none?
-    each do |element|
+    my_each do |element|
       return false if yield(element)
     end
     return true
@@ -43,7 +43,7 @@ module Enumerable
     return length unless block_given?
 
     n = 0
-    each do |element|
+    my_each do |element|
       n += 1 if yield(element)
     end
     return n
@@ -51,7 +51,7 @@ module Enumerable
 
   def my_map
     result = []
-    each do |element|
+    my_each do |element|
       result << yield(element)
     end
     result
