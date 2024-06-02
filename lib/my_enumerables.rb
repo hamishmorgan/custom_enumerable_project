@@ -48,6 +48,14 @@ module Enumerable
     end
     return n
   end
+
+  def my_map
+    result = []
+    each do |element|
+      result << yield(element)
+    end
+    result
+  end
 end
 
 # You will first have to define my_each
