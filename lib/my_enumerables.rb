@@ -8,4 +8,12 @@ end
 # to this method
 class Array
   # Define my_each here
+  def my_each
+    i = 0
+    while i < length
+      yield fetch(i)
+      i += 1
+    end
+    self
+  end
 end
