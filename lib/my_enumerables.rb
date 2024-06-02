@@ -3,11 +3,19 @@ module Enumerable
   #
   def my_each_with_index
     index = 0
-    self.each do |element|
+    each do |element|
       yield [element, index]
       index += 1
     end
     self
+  end
+
+  def my_select
+    result = []
+    each do |element|
+      result << element if yield(element)
+    end
+    result
   end
 end
 
